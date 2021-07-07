@@ -1,0 +1,8 @@
+<?xml version='1.0'?>
+<Application>
+  <Comment />
+  <Description>Useful tools</Description>
+  <Name>Tools</Name>
+  <Partition type="Partition" path="GLOBAL" />
+  <ParentApplication type="Application" path="GLOBAL.Redwood.$2" />
+</Application>

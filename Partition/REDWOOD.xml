@@ -1,0 +1,8 @@
+<?xml version='1.0'?>
+<Partition>
+  <Comment />
+  <Description />
+  <Name>REDWOOD</Name>
+  <Exportable>true</Exportable>
+  <IsolationGroup type="IsolationGroup" path="GLOBAL" />
+</Partition>

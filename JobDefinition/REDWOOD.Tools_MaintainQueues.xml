@@ -1,0 +1,189 @@
+<?xml version='1.0'?>
+<JobDefinition>
+  <Comment />
+  <Description>Maintain Queue Status</Description>
+  <Name>Tools_MaintainQueues</Name>
+  <Partition type="Partition" path="REDWOOD" />
+  <ParentApplication type="Application" path="GLOBAL.Redwood.GLOBAL.Tools.$2" />
+  <EquivalentObject>false</EquivalentObject>
+  <CriticalProcess>false</CriticalProcess>
+  <KeepForce>false</KeepForce>
+  <KeepAmount />
+  <KeepUnits />
+  <KeepType />
+  <KeepJobsInStatus />
+  <KeepInStatusAmount />
+  <KeepInStatusUnit />
+  <MinimumOpenDurationExpression />
+  <Overdue>false</Overdue>
+  <OverdueStatus />
+  <OverviewFormat />
+  <Priority />
+  <MaxPriority>100</MaxPriority>
+  <RestartCount />
+  <ReturncodeMapToCompleted />
+  <HoldOnSubmit>false</HoldOnSubmit>
+  <TopLevel>true</TopLevel>
+  <Template>false</Template>
+  <Maintenance>false</Maintenance>
+  <ReactionJobType />
+  <EvaluationOwnerType>SystemDefault</EvaluationOwnerType>
+  <CompletionStrategy>Resilient</CompletionStrategy>
+  <OverdueEventDefinition />
+  <DefaultOutputFormat />
+  <JobDefinitionType type="JobDefinitionType" path="GLOBAL.RedwoodScript" />
+  <DefaultLogFormat />
+  <DefaultQueue type="Queue" path="GLOBAL.System" />
+  <Resource />
+  <TimeWindow />
+  <TimeWindowTimeZone />
+  <JobTimeZone />
+  <RELRelatedLibrary />
+  <ActionSubject />
+  <JobDefinitionParameter>
+    <Comment />
+    <Description>Include Queues (comma separated list)</Description>
+    <Name>include</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>0</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>true</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment />
+    <Description>Include Queues (comma separated list)</Description>
+    <Name>exclude</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression><![CDATA[System_Maintenance]]></DefaultExpression>
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>1</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>true</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment />
+    <Description>The action to perform (hold/release)</Description>
+    <Name>action</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression><![CDATA[release]]></DefaultExpression>
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>List</SimpleConstraintType>
+    <SimpleConstraintData><![CDATA[hold,release]]></SimpleConstraintData>
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>2</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <Script>
+    <Source><![CDATA[{
+  java.util.List<String> includeList = include == null ? new java.util.ArrayList<>() : java.util.Arrays.asList(include.split(" *, *"));
+  java.util.List<String> excludeList = exclude == null ? new java.util.ArrayList<>() : java.util.Arrays.asList(exclude.split(" *, *"));
+  for (Queue q: jcsSession.executeObjectQuery(Queue.TYPE, null))
+  {
+    if (!includeList.isEmpty() && !includeList.contains(q.getName()))
+    {
+      jcsOut.println("Skipping " + q.getName() + " as it is not on the include list");
+      continue;
+    }
+    if (!excludeList.isEmpty() && excludeList.contains(q.getName()))
+    {
+      jcsOut.println("Skipping " + q.getName() + " as it is on the exclude list");
+      continue;
+    }
+    if ("release".equalsIgnoreCase(action))
+    {
+      if (q.isHeld())
+      {
+        jcsOut.println("Release " + q.getName());
+        q.release();
+      }
+      else
+      {
+        jcsOut.println("Not releasing " + q.getName() + " as it is not Held");
+      }
+    }
+    if ("hold".equalsIgnoreCase(action))
+    {
+      if (!q.isHeld())
+      {
+        jcsOut.println("Hold " + q.getName());
+        q.hold();
+      }
+      else
+      {
+        jcsOut.println("Not holding " + q.getName() + " as it is already Held");
+      }
+    }
+  }
+  jcsSession.persist();
+}]]></Source>
+    <RunAsUser />
+    <RemoteRunAsUser />
+    <Library type="Library" path="GLOBAL.None" />
+  </Script>
+</JobDefinition>
