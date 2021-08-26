@@ -1,0 +1,492 @@
+<?xml version='1.0'?>
+<JobDefinition>
+  <Comment />
+  <Description>Pusher definition that excludes certain object types from the export</Description>
+  <Name>Promote_Exclude_ObjectTypes</Name>
+  <Partition type="Partition" path="GLOBAL" />
+  <ParentApplication type="Application" path="GLOBAL.Redwood.$2" />
+  <EquivalentObject>false</EquivalentObject>
+  <CriticalProcess>false</CriticalProcess>
+  <KeepForce>false</KeepForce>
+  <KeepAmount />
+  <KeepUnits />
+  <KeepType />
+  <KeepJobsInStatus />
+  <KeepInStatusAmount />
+  <KeepInStatusUnit />
+  <MinimumOpenDurationExpression />
+  <Overdue>false</Overdue>
+  <OverdueStatus />
+  <OverviewFormat />
+  <Priority />
+  <MaxPriority>100</MaxPriority>
+  <RestartCount />
+  <ReturncodeMapToCompleted />
+  <HoldOnSubmit>false</HoldOnSubmit>
+  <TopLevel>true</TopLevel>
+  <Template>false</Template>
+  <Maintenance>false</Maintenance>
+  <ReactionJobType>Pusher</ReactionJobType>
+  <EvaluationOwnerType>SystemDefault</EvaluationOwnerType>
+  <CompletionStrategy>Default</CompletionStrategy>
+  <OverdueEventDefinition />
+  <DefaultOutputFormat />
+  <JobDefinitionType type="JobDefinitionType" path="GLOBAL.RedwoodScript" />
+  <DefaultLogFormat />
+  <DefaultQueue type="Queue" path="GLOBAL.System" />
+  <Resource />
+  <TimeWindow />
+  <TimeWindowTimeZone />
+  <JobTimeZone />
+  <RELRelatedLibrary />
+  <ActionSubject />
+  <JobDefinitionParameter>
+    <Comment><![CDATA[The address associated with the source process server check, or the address of the Remote System]]></Comment>
+    <Description>Address</Description>
+    <Name>Address</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>0</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[Data associated with the current process or process server check, or location of the CAR file.]]></Comment>
+    <Description>Data</Description>
+    <Name>Data</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>1</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>true</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[The message associated with the source process server check]]></Comment>
+    <Description>Message</Description>
+    <Name>Message</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>2</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>true</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[Name of the source that initiated this process.]]></Comment>
+    <Description>Source Object</Description>
+    <Name>SourceObject</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>3</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[Object type of the source that initiated this process.]]></Comment>
+    <Description>Source Object Type</Description>
+    <Name>SourceObjectType</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>4</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[UniqueId of the source that initiated this process.]]></Comment>
+    <Description>Source Object UniqueId</Description>
+    <Name>SourceObjectUniqueId</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>Number</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>5</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[BusinessKey of the export rule set that contains all the objects that must be included in the generated CAR file.]]></Comment>
+    <Description>Export Rule Set Business Key</Description>
+    <Name>exportRuleSetBusinessKey</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>6</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[BusinessKey of the remote system that this promote should go to. The same information is available in the Source* parameters, but this is for backwards compatibility.]]></Comment>
+    <Description>Remote System Business Key</Description>
+    <Name>remoteSystemBusinessKey</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>7</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[Should only the CAR file be generated (false), or must it also be send to the remote system (true).]]></Comment>
+    <Description>Send to Remote System</Description>
+    <Name>sendToRemoteSystem</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>8</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment />
+    <Description>Exclude Object Types</Description>
+    <Name>excludeObjectTypes</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression><![CDATA[ProcessServer,Queue]]></DefaultExpression>
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>9</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>false</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <JobDefinitionParameter>
+    <Comment><![CDATA[Additional information as to why this promote is being done. E.g. an issue number, link to documentation, etc.]]></Comment>
+    <Description>Comment for this promotion</Description>
+    <Name>promotionComment</Name>
+    <DataLength />
+    <DataPrecision />
+    <DataScale />
+    <DataType>String</DataType>
+    <DefaultExpression />
+    <DefaultValueEditable />
+    <Direction>In</Direction>
+    <SimpleConstraintType>None</SimpleConstraintType>
+    <SimpleConstraintData />
+    <SimpleConstraintMessage />
+    <SimpleConstraintOptional>false</SimpleConstraintOptional>
+    <SimpleConstraintSort>Ascending</SimpleConstraintSort>
+    <Display>true</Display>
+    <Password>false</Password>
+    <DisplayOrder>10</DisplayOrder>
+    <Editable>Always</Editable>
+    <GroupName />
+    <PartOfKey>false</PartOfKey>
+    <Nullable>true</Nullable>
+    <Runtime>false</Runtime>
+    <JobFormat />
+    <Array>false</Array>
+    <ArrayMinLength>0</ArrayMinLength>
+    <ArrayMaxLength />
+    <ArrayDuplicateValuesAllowed>false</ArrayDuplicateValuesAllowed>
+    <ArraySorted>false</ArraySorted>
+    <ParameterMappingType>Normal</ParameterMappingType>
+    <JobDefinitionParameterSubType />
+  </JobDefinitionParameter>
+  <Script>
+    <Source><![CDATA[import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import com.redwood.scheduler.api.exception.SchedulerAPIPersistenceException;
+import com.redwood.scheduler.api.export.ExportedItem;
+import com.redwood.scheduler.api.model.BusinessKeyLookup;
+import com.redwood.scheduler.api.model.BusinessKeyObject;
+import com.redwood.scheduler.api.model.ExportRuleSet;
+import com.redwood.scheduler.api.model.Exporter;
+import com.redwood.scheduler.api.model.Job;
+import com.redwood.scheduler.api.model.SchedulerEntity;
+import com.redwood.scheduler.api.model.SchedulerSession;
+{
+  List<String> excludeTypes = excludeObjectTypes == null ? Collections.emptyList() : Arrays.asList(excludeObjectTypes.split(" *, *"));
+  ExportRuleSet ers = BusinessKeyLookup.getExportRuleSetByBusinessKey(jcsSession, exportRuleSetBusinessKey);
+  SchedulerSession exporterSession = jcsJobContext.createSchedulerSession();
+  Exporter ex = exporterSession.createExporter();
+  if (promotionComment != null)
+  {
+    ex.setComment(promotionComment);
+  }
+  if (ers != null)
+  {
+    for (ExportedItem ei: ers.getExportedItems())
+    {
+      SchedulerEntity se = ei.getSchedulerEntity();
+      if (se instanceof BusinessKeyObject)
+      {
+        BusinessKeyObject bko = (BusinessKeyObject) se;
+        if (!(bko.getBusinessKey().getPath().toString().matches(".*\\.System_Internal_Chain.*")) && !excludeTypes.contains(bko.getBusinessKey().getObjectType()))
+        {
+          ex.exportObject(bko);
+          jcsErr.println("Added " + bko.getBusinessKey().toString() + " to export list");
+        }
+        else
+        {
+          jcsErr.println("Ignore " + bko.getBusinessKey().toString());
+        }
+      }
+    }
+  }
+  ex.writeToNewJobFile(exporterSession.getJobByJobId(jcsJob.getJobId()));
+  persist(exporterSession);
+  reset(jcsSession);
+  jcsSession.refreshObjects(new SchedulerEntity[] {jcsJob});
+  Job j = jcsSession.getJobDefinitionByName("System_Promote_Further").prepare();
+  j.getJobParameterByName("SourceObject").setInValueString(SourceObject);
+  j.getJobParameterByName("SourceObjectUniqueId").setInValueNumber(SourceObjectUniqueId);
+  j.getJobParameterByName("SourceObjectType").setInValueString(SourceObjectType);
+  j.getJobParameterByName("Message").setInValueString(promotionComment);
+  j.getJobParameterByName("Address").setInValueString(Address);
+  j.getJobParameterByName("CARFile").setInValueString("JobFile:" + jcsJob.getJobId() + ":carout.car");
+  j.getJobParameterByName("OriginalJobId").setInValueString(jcsJob.getJobId().toString());
+  persist(jcsSession);
+}
+
+private void persist(SchedulerSession session)
+{
+  if (session.hasDirtyObjects())
+  {
+    try
+    {
+      session.persist();
+    }
+    catch (SchedulerAPIPersistenceException e)
+    {
+      e.printStackTrace(jcsErr);
+      reset(session);
+    }
+  }
+}
+  
+private void reset(SchedulerSession session)
+{
+  if (session.hasDirtyObjects())
+  {
+    session.reset();
+  }
+}
+]]></Source>
+    <RunAsUser />
+    <RemoteRunAsUser />
+    <Library type="Library" path="GLOBAL.None" />
+  </Script>
+</JobDefinition>
